@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={firaCode.className}>{children}</body>
+      <body className={`bg-background ${firaCode.className}`}>{children}</body>
     </html>
   );
 }
