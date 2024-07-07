@@ -7,7 +7,7 @@ import {
 
 export default function CardProject() {
   return (
-    <div className="min-w-80 border border-gray">
+    <div className="max-w-80 border border-gray">
       <div className="relative max-h-[200px]">
         <Image
           src="/thumbnail.png"
