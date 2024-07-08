@@ -1,7 +1,12 @@
-import Link from "next/link";
+"use client";
+
 import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <header className="pt-8 pb-2">
       <div className="container px-4 mx-auto max-w-screen-lg">
@@ -13,15 +18,15 @@ export default function Navbar() {
             <li>
               <Link
                 href="/"
-                className="text-gray hover:font-medium hover:text-white"
+                className={`text-gray hover:font-medium hover:text-white ${pathname === "/" ? "font-medium text-white" : ""}`}
               >
                 <span className="text-primary">#</span>home
               </Link>
             </li>
             <li>
               <Link
-                href="/works"
-                className="text-gray hover:font-medium hover:text-white"
+                href="/projects"
+                className={`text-gray hover:font-medium hover:text-white ${pathname === "/projects" ? "font-medium text-white" : ""}`}
               >
                 <span className="text-primary">#</span>works
               </Link>
@@ -29,7 +34,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/about"
-                className="text-gray hover:font-medium hover:text-white"
+                className={`text-gray hover:font-medium hover:text-white ${pathname === "/about" ? "font-medium text-white" : ""}`}
               >
                 <span className="text-primary">#</span>about-me
               </Link>
@@ -37,7 +42,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contacts"
-                className="text-gray hover:font-medium hover:text-white"
+                className={`text-gray hover:font-medium hover:text-white ${pathname === "/contacts" ? "font-medium text-white" : ""}`}
               >
                 <span className="text-primary">#</span>contacts
               </Link>
