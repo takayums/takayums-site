@@ -7,13 +7,13 @@ export default function Contact() {
     <section className="my-16">
       <div className="container mx-auto max-w-screen-lg px-4">
         <div className="flex items-center gap-4 mb-12">
-          <h2 className="font-medium text-4xl text-white">
+          <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-white">
             <span className="text-primary">#</span>Contacts
           </h2>
-          <span className="border border-primary w-[200px]"></span>
+          <span className="border border-primary w-32 md:w-60 lg:w-[200px]"></span>
         </div>
-        <div className="flex justify-between">
-          <p className="font-medium text-base text-gray max-w-[505px]">
+        <div className="flex items-center md:items-stretch justify-between flex-col md:flex-row gap-4">
+          <p className="font-medium text-base text-gray max-w-[505px] text-center md:text-left">
             I’m interested in freelance opportunities. However, if you have
             other request or question, don’t hesitate to contact me
           </p>

@@ -7,7 +7,7 @@ import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(true);
   const menu = [
     { href: "/", title: "home" },
     { href: "/projects", title: "works" },

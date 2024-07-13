@@ -6,13 +6,13 @@ export default function Skills() {
       <div className="container mx-auto px-4 max-w-screen-lg">
         <div className="mb-12">
           <div className="flex items-center gap-4">
-            <h2 className="font-medium text-4xl text-white">
+            <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-white">
               <span className="text-primary">#</span>Skills
             </h2>
-            <span className="border border-primary w-[250px]"></span>
+            <span className="border border-primary w-32 md:w-60 lg:w-[250px]"></span>
           </div>
         </div>
-        <div className="flex items-start gap-4">
+        <div className="flex items-start justify-center md:justify-start flex-wrap gap-4">
           <div className="max-w-52 border border-gray inline-block text-base text-gray">
             <h3 className="border-b border-gray p-2 font-semibold">
               Languages
@@ -37,6 +37,7 @@ export default function Skills() {
             <h3 className="border-b border-gray p-2 font-semibold">Tools</h3>
             <ul className="p-2 flex flex-wrap">
               <li className="mr-2">Linux</li>
+              <li className="mr-2">Zsh</li>
               <li className="mr-2">Neovim</li>
               <li className="mr-2">Figma</li>
             </ul>
