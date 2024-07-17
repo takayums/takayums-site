@@ -6,7 +6,7 @@ import {
 
 export default function SmallProject() {
   return (
-    <div className="max-w-80 border border-gray">
+    <div className="min-w-80 border border-gray">
       <div className="p-2 border-b border-gray">
         <ul className="flex gap-2 text-gray">
           <li>Lua</li>
