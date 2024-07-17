@@ -27,7 +27,7 @@ export default function About() {
           <h2 className="font-medium text-white text-3xl mb-12">
             <span className="text-primary">#</span>skills
           </h2>
-          <div className="flex items-start gap-4">
+          <div className="flex flex-wrap items-start gap-4">
             <div className="max-w-52 border border-gray inline-block text-base text-gray">
               <h3 className="border-b border-gray p-2 font-semibold">
                 Languages
