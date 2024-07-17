@@ -9,8 +9,8 @@ export default function Contacts() {
         <h1 className="font-semibold text-3xl text-white mb-3.5">
           <span className="text-primary">/</span>contacts
         </h1>
-        <div className="flex justify-between mt-10">
-          <p className="font-medium text-base text-gray max-w-[505px]">
+        <div className="flex justify-between flex-col md:flex-row items-center md:items-stretch mt-10 gap-4">
+          <p className="font-medium text-base text-gray text-center md:text-start max-w-[505px]">
             I’m interested in freelance opportunities. However, if you have
             other request or question, don’t hesitate to contact me
           </p>
