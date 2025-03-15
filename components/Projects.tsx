@@ -10,7 +10,7 @@ import CardProject from "./CardProject";
 export default function Projects() {
   return (
     <section className="my-16">
-      <div className="container mx-auto px-4 max-w-screen-lg">
+      <div className="container mx-auto px-4 max-w-(--breakpoint-lg)">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-4">
             <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-white">

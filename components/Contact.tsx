@@ -5,7 +5,7 @@ import { GitHub, Instagram } from "react-feather";
 export default function Contact() {
   return (
     <section className="my-16">
-      <div className="container mx-auto max-w-screen-lg px-4">
+      <div className="container mx-auto max-w-(--breakpoint-lg) px-4">
         <div className="flex items-center gap-4 mb-12">
           <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-white">
             <span className="text-primary">#</span>Contacts

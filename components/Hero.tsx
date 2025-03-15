@@ -4,7 +4,7 @@ import React from "react";
 export default function Hero() {
   return (
     <section className="my-16">
-      <div className="container mx-auto px-4 flex items-center flex-col md:flex-row gap-5 max-w-screen-lg">
+      <div className="container mx-auto px-4 flex items-center flex-col md:flex-row gap-5 max-w-(--breakpoint-lg)">
         <div className="grow">
           <h1 className="font-semibold text-white text-3xl md:text-[38px] leading-normal md:mb-8 mb-5">
             Yums is a <span className="text-primary">React Js Developer</span>{" "}

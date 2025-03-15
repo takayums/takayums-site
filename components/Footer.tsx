@@ -5,7 +5,7 @@ import { Figma, GitHub, Instagram } from "react-feather";
 export default function Footer() {
   return (
     <footer className="border-t border-gray py-8">
-      <div className="container mx-auto px-4 max-w-screen-lg flex flex-col md:flex-row gap-2 justify-between md:items-stretch items-center">
+      <div className="container mx-auto px-4 max-w-(--breakpoint-lg) flex flex-col md:flex-row gap-2 justify-between md:items-stretch items-center">
         <div className="">
           <Link
             href="/"

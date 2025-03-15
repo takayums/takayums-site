@@ -10,7 +10,7 @@ export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(true);
   const menu = [
     { href: "/", title: "home" },
-    { href: "/projects", title: "works" },
+    { href: "/projects", title: "porjects" },
     { href: "/about", title: "about me" },
     { href: "/contacts", title: "contacts" },
   ];
@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <header className="py-8">
-      <div className="container px-4 mx-auto max-w-screen-lg">
+      <div className="container px-4 mx-auto max-w-(--breakpoint-lg)">
         <nav className="flex items-center justify-between relative">
           <Link href="/" className="text-white font-bold text-base">
             yums_
@@ -36,7 +36,7 @@ export default function Navbar() {
             </button>
           </div>
           <ul
-            className={`text-base absolute top-10 right-0 py-2 bg-background md:static md:flex md:flex-row border border-gray md:border-none ${toggleMenu ? "hidden" : "top-[-100]"}`}
+            className={`text-base absolute top-10 right-0 py-2 bg-background md:static md:flex md:flex-row border border-gray md:border-none ${toggleMenu ? "hidden" : "top-<-100>"}`}
           >
             {menu.map((item, index) => (
               <li key={index} onClick={handleToggleMenu}>

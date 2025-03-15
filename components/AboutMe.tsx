@@ -4,7 +4,7 @@ import React from "react";
 export default function AboutMe() {
   return (
     <section className="my-16">
-      <div className="container mx-auto px-4 max-w-screen-lg">
+      <div className="container mx-auto px-4 max-w-(--breakpoint-lg)">
         <div className="flex items-center gap-4 mb-12">
           <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-white">
             <span className="text-primary">#</span>About Me

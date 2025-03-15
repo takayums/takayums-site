@@ -3,7 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <section className="my-16">
-      <div className="container mx-auto px-4 max-w-screen-lg">
+      <div className="container mx-auto px-4 max-w-(--breakpoint-lg)">
         <h1 className="font-semibold text-3xl text-white mb-3.5">
           <span className="text-primary">/</span>about-me
         </h1>
