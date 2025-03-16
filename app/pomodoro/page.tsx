@@ -1,5 +1,6 @@
 "use client"
 
+import { ReturnConvertTime } from "@/types/types"
 import { convertMiliseconds } from "@/utils/utils"
 import { useRef, useState } from "react"
 
@@ -19,10 +20,12 @@ export default function Pomodoro() {
   }
 
   function handleStart() {
+    if (timerRef.current !== null) return;
     timerRef.current = setInterval(() => {
       setTimerLeft(prev => {
         if (prev <= 1) {
           clearInterval(timerRef.current as NodeJS.Timeout);
+          soundPomodor();
           return 0;
         }
         return prev - 1
@@ -31,24 +34,35 @@ export default function Pomodoro() {
   }
 
   function handleStop() {
-    clearInterval(timerRef.current as NodeJS.Timeout)
+    if (timerRef.current) {
+
+      clearInterval(timerRef.current as NodeJS.Timeout)
+      timerRef.current = null
+
+    }
   }
 
   function handleRestart() {
     setTimerLeft(1500)
-    clearInterval(timerRef.current as NodeJS.Timeout)
+    if (timerRef.current) {
+      clearInterval(timerRef.current as NodeJS.Timeout)
+      timerRef.current = null;
+    }
   }
+
+  const { m, s, d, h }: ReturnConvertTime = convertMiliseconds(timerLeft);
 
   return (
     <section className="my-16 grow flex-1 flex flex-col gap-4 items-center justify-center">
       <p className="text-center font-medium text-white text-3xl">Pomodoro</p>
       <h1 className="text-center text-white font-bold text-9xl">
-        {`${convertMiliseconds(timerLeft, "m")}:${convertMiliseconds(timerLeft, "d")}`}
+        {`${h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`}
       </h1>
       <div className="text-white flex gap-5">
         <button onClick={handleStart} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Start</button>
         <button onClick={handleStop} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Stop</button>
         <button onClick={handleRestart} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Restart</button>
+        <button onClick={handleRestart} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Continue</button>
       </div>
     </section>
   )

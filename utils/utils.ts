@@ -1,11 +1,7 @@
-interface ConvertTimeResult {
-  d: number;
-  h: number;
-  m: number;
-  s: number;
-}
+import { ReturnConvertTime } from "@/types/types";
 
-function convertMiliseconds(secondsInput: number, format: 's' | 'm' | 'h' | 'd' | 'a' = 'a'): number | ConvertTimeResult {
+function convertMiliseconds(secondsInput: number, format: 's' | 'm' | 'h' | 'd' | 'a' = 'a'): number | ReturnConvertTime {
+
   let total_seconds: number = secondsInput;
   let total_minutes: number = Math.floor(total_seconds / 60);
   let total_hours: number = Math.floor(total_minutes / 60);
@@ -17,11 +13,11 @@ function convertMiliseconds(secondsInput: number, format: 's' | 'm' | 'h' | 'd' 
 
   switch (format) {
     case 's':
-      return total_seconds;
+      return seconds;
     case 'm':
-      return total_minutes;
+      return minutes;
     case 'h':
-      return total_hours;
+      return hours;
     case 'd':
       return days;
     default:

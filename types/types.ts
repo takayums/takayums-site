@@ -1,6 +1,7 @@
 export interface ReturnConvertTime {
-  d: number,
-  h: number,
-  s: number,
-  m: number
+  d: number;
+  h: number;
+  m: number;
+  s: number;
 }
+
