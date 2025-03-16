@@ -22,7 +22,7 @@ export default function Pomodoro() {
     timerRef.current = setInterval(() => {
       setTimerLeft(prev => {
         if (prev <= 1) {
-          clearInterval(timerRef.current);
+          clearInterval(timerRef.current as NodeJS.Timeout);
           return 0;
         }
         return prev - 1
@@ -31,24 +31,24 @@ export default function Pomodoro() {
   }
 
   function handleStop() {
-    clearInterval(timerRef.current)
+    clearInterval(timerRef.current as NodeJS.Timeout)
   }
 
   function handleRestart() {
     setTimerLeft(1500)
-    clearInterval(timerRef.current)
+    clearInterval(timerRef.current as NodeJS.Timeout)
   }
 
   return (
     <section className="my-16 grow flex-1 flex flex-col gap-4 items-center justify-center">
       <p className="text-center font-medium text-white text-3xl">Pomodoro</p>
       <h1 className="text-center text-white font-bold text-9xl">
-        {convertMiliseconds(timerLeft).m}:{convertMiliseconds(timerLeft).s}
+        {`${convertMiliseconds(timerLeft, "m")}:${convertMiliseconds(timerLeft, "d")}`}
       </h1>
       <div className="text-white flex gap-5">
-        <button onClick={handleStart} className="py-4 px-10 rounded-lg border text-xl font-semibold">Start</button>
-        <button onClick={handleStop} className="py-4 px-10 rounded-lg border text-xl font-semibold">Stop</button>
-        <button onClick={handleRestart} className="py-4 px-10 rounded-lg border text-xl font-semibold">Restart</button>
+        <button onClick={handleStart} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Start</button>
+        <button onClick={handleStop} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Stop</button>
+        <button onClick={handleRestart} className="hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold">Restart</button>
       </div>
     </section>
   )
