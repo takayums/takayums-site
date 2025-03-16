@@ -13,6 +13,7 @@ export default function Navbar() {
     { href: "/projects", title: "porjects" },
     { href: "/about", title: "about me" },
     { href: "/contacts", title: "contacts" },
+    { href: "/pomodoro", title: "pomodoro" },
   ];
 
   const handleToggleMenu = () => {

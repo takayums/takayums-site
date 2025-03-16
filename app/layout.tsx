@@ -22,7 +22,7 @@ export default function RootLayout({
         className={`bg-background ${firaCode.className} flex flex-col min-h-screen`}
       >
         <Navbar />
-        <main className="grow">{children}</main>
+        <main className="grow flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>
