@@ -29,9 +29,12 @@ export default function Projects() {
             <span className="text-primary">#</span>small-projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <SmallProject />
-            <SmallProject />
-            <SmallProject />
+            <SmallProject
+              tools={["reactjs", "typescript"]}
+              label="Pomodoro"
+              deskripsi="Ini adalah tools untuk membatasi waktu belajar yang sering disebut metode pomodoro"
+              link="/pomodoro"
+            />
           </div>
         </div>
       </div>
