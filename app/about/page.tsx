@@ -4,11 +4,11 @@ export default function About() {
   return (
     <section className="my-16">
       <div className="container mx-auto px-4 max-w-(--breakpoint-lg)">
-        <h1 className="font-semibold text-3xl text-white mb-3.5">
+        <h1 className="font-semibold text-3xl text-gray-500 dark:text-white mb-3.5">
           <span className="text-primary">/</span>about-me
         </h1>
-        <p className="text-white font-base">Who i'm</p>
-        <div className="text-base text-center font-normal text-gray leading-8 mt-10">
+        <p className="text-gray-500 dark:text-white font-base">Who i'm</p>
+        <div className="text-base text-center font-normal dark:text-gray text-gray-500 leading-8 mt-10">
           <p className="mb-4">Hello I'm Yums!</p>
           <p className="mb-4">
             I’m a self-taught front-end developer based in Banyuwangi, East
@@ -24,11 +24,11 @@ export default function About() {
         </div>
 
         <div className="my-10">
-          <h2 className="font-medium text-white text-3xl mb-12">
+          <h2 className="font-medium text-gray-500 dark:text-white text-3xl mb-12">
             <span className="text-primary">#</span>skills
           </h2>
           <div className="flex flex-wrap items-start gap-4">
-            <div className="max-w-52 border border-gray inline-block text-base text-gray">
+            <div className="max-w-52 border border-gray inline-block text-base text-gray-500 dark:text-gray">
               <h3 className="border-b border-gray p-2 font-semibold">
                 Languages
               </h3>
@@ -38,7 +38,7 @@ export default function About() {
                 <li className="mr-2">Python</li>
               </ul>
             </div>
-            <div className="max-w-52 border border-gray inline-block text-base text-gray">
+            <div className="max-w-52 border border-gray inline-block text-base text-gray-500 dark:text-gray">
               <h3 className="border-b border-gray p-2 font-semibold">
                 Databases
               </h3>
@@ -48,7 +48,7 @@ export default function About() {
                 <li className="mr-2">Mysql</li>
               </ul>
             </div>
-            <div className="max-w-52 border border-gray inline-block text-base text-gray">
+            <div className="max-w-52 border border-gray inline-block text-base text-gray-500 dark:text-gray">
               <h3 className="border-b border-gray p-2 font-semibold">Tools</h3>
               <ul className="p-2 flex flex-wrap">
                 <li className="mr-2">Linux</li>
@@ -56,7 +56,7 @@ export default function About() {
                 <li className="mr-2">Figma</li>
               </ul>
             </div>
-            <div className="max-w-52 border border-gray inline-block text-base text-gray">
+            <div className="max-w-52 border border-gray inline-block text-base text-gray-500 dark:text-gray">
               <h3 className="border-b border-gray p-2 font-semibold">
                 Frameworks
               </h3>
@@ -72,29 +72,29 @@ export default function About() {
         </div>
 
         <div className="my-16">
-          <h2 className="font-medium text-white text-3xl mb-12">
+          <h2 className="font-medium text-gray-500 dark:text-white text-3xl mb-12">
             <span className="text-primary">#</span>my-fun-facts
           </h2>
           <div className="gap-4 max-w-[700px] flex flex-wrap">
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               I like winter more than summer
             </p>
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               I often bike with my friends
             </p>
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               I like fried rice
             </p>
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               I was in Jember, East Java
             </p>
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               My favorite movie is Kung Fu Panda
             </p>
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               I am still in school
             </p>
-            <p className="p-2 text-white border border-gray inline-block">
+            <p className="p-2 text-gray-500 dark:text-white border border-gray inline-block">
               I have one sister
             </p>
           </div>

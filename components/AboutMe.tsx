@@ -6,12 +6,12 @@ export default function AboutMe() {
     <section className="my-16">
       <div className="container mx-auto px-4 max-w-(--breakpoint-lg)">
         <div className="flex items-center gap-4 mb-12">
-          <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-white">
+          <h2 className="font-medium text-2xl md:text-3xl lg:text-4xl text-gray-500 dark:text-white">
             <span className="text-primary">#</span>About Me
           </h2>
           <span className="border border-primary w-32 md:w-60 lg:w-[350px]"></span>
         </div>
-        <div className="text-base text-center font-normal text-gray leading-8">
+        <div className="text-base text-center font-normal dark:text-gray text-gray-500 leading-8">
           <p className="mb-4">{"Hello I'm Yums!"}</p>
           <p className="mb-4">
             I&apos;m a self-taught front-end developer based in Banyuwangi, East

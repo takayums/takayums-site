@@ -1,10 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-background: #282c33;
   --color-primary: #c778dd;
   --color-gray: #abb2bf;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -15,7 +17,6 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-
   *,
   ::after,
   ::before,

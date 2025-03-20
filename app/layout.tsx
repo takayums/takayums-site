@@ -3,6 +3,7 @@ import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "next-themes";
 
 const firaCode = Fira_Code({ subsets: ["latin"] });
 
@@ -17,13 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`bg-background ${firaCode.className} flex flex-col min-h-screen`}
-      >
-        <Navbar />
-        <main className="grow flex flex-col">{children}</main>
-        <Footer />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${firaCode.className} flex flex-col min-h-screen`}>
+        <ThemeProvider attribute="class" enableSystem={true}>
+          <Navbar />
+          <main className="dark:bg-background bg-white grow flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
