@@ -1,63 +1,85 @@
 "use client";
 
-import { convertMiliseconds } from "@/utils/utils";
-import { useCallback, useRef, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Pomodoro() {
-  const [timerLeft, setTimerLeft] = useState<number>(1500);
-  let timerRef = useRef<NodeJS.Timeout | null>(null);
+  const TOTAL_SECONDS = 1500;
+  const [timerLeft, setTimerLeft] = useState<number>(TOTAL_SECONDS);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [startTime, setStartTime] = useState<number | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Fungsi suara
   function soundPomodor() {
     const synth = window.speechSynthesis;
-    const text = "Pomodoro Time is Over";
-    const utterance = new SpeechSynthesisUtterance(text);
-
+    const utterance = new SpeechSynthesisUtterance("Pomodoro Time is Over");
     const voices = synth.getVoices();
-    utterance.voice = voices[0];
-
+    if (voices.length > 0) {
+      utterance.voice = voices[0];
+    }
     synth.speak(utterance);
   }
 
-  const handleStart = useCallback(() => {
-    if (timerRef.current !== null) return;
+  // Efek untuk memulai interval ketika timer aktif
+  useEffect(() => {
+    if (!isRunning || startTime === null) return;
 
     timerRef.current = setInterval(() => {
-      setTimerLeft((prev: number): number => {
-        if (prev <= 1) {
-          clearInterval(timerRef.current as NodeJS.Timeout);
-          soundPomodor();
-          return 0;
-        }
-        return prev - 1;
-      });
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const remaining = TOTAL_SECONDS - elapsed;
+
+      if (remaining <= 0) {
+        clearInterval(timerRef.current!);
+        setIsRunning(false);
+        setTimerLeft(0);
+        soundPomodor();
+      } else {
+        setTimerLeft(remaining);
+      }
     }, 1000);
-  }, []);
 
-  const handleStop = useCallback(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current as NodeJS.Timeout);
-      timerRef.current = null;
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isRunning, startTime]);
+
+  const handleStart = () => {
+    if (!isRunning) {
+      setStartTime(Date.now());
+      setIsRunning(true);
     }
-  }, []);
+  };
 
-  const handleRestart = useCallback(() => {
-    setTimerLeft(1500);
-    if (timerRef.current) {
-      clearInterval(timerRef.current as NodeJS.Timeout);
-      timerRef.current = null;
-    }
-  }, []);
+  const handleStop = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setIsRunning(false);
+  };
 
-  const data = convertMiliseconds(timerLeft);
-  const dataType = data as { d: number; h: number; m: number; s: number };
+  const handleRestart = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setIsRunning(false);
+    setStartTime(null);
+    setTimerLeft(TOTAL_SECONDS);
+  };
+
+  const formatTime = (seconds: number) => {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return `${h.toString().padStart(2, "0")}:${m
+      .toString()
+      .padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  };
 
   return (
     <section className="my-16 grow flex-1 flex flex-col gap-4 items-center justify-center">
-      <p className="text-center font-medium text-white text-3xl">Pomodoro</p>
-      <h1 className="text-center text-white font-bold text-9xl">
-        {`${dataType.h < 10 ? `0${dataType.h}` : dataType.h}:${dataType.m < 10 ? `0${dataType.m}` : dataType.m}:${dataType.s < 10 ? `0${dataType.s}` : dataType.s}`}
+      <p className="text-center font-medium dark:text-white text-3xl text-gray-500">
+        Pomodoro
+      </p>
+      <h1 className="text-center text-gray-500 dark:text-white font-bold text-9xl">
+        {formatTime(timerLeft)}
       </h1>
-      <div className="text-white flex gap-5">
+      <div className="text-gray-500 dark:text-white flex gap-5">
         <button
           onClick={handleStart}
           className="transition duration-300 ease-in-out hover:bg-white hover:border-primary hover:text-gray py-4 px-10 rounded-lg border text-xl font-semibold"
