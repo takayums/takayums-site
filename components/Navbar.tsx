@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import ToggleTheme from "./ToggleTheme";
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -27,8 +28,22 @@ export default function Navbar() {
         <nav className="flex items-center justify-between relative">
           <Link
             href="/"
-            className="dark:text-white text-gray-500 font-bold text-base"
+            className="flex flex-row gap-2 dark:text-white text-gray-500 font-bold text-base"
           >
+            <Image
+              src="/logo-black.svg"
+              alt="Logo Super"
+              width={30}
+              height={30}
+              className="block dark:hidden"
+            />
+            <Image
+              src="/logo-white.svg"
+              alt="Logo Super"
+              width={30}
+              height={30}
+              className="hidden dark:block"
+            />
             yums_
           </Link>
           <div className="md:hidden ml-auto mr-2">
